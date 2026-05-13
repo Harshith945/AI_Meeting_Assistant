@@ -52,9 +52,9 @@ transcript = ""
 if option == "Text":
 
     transcript = st.text_area(
-        "Paste Meeting Transcript",
-        height=250
-    )
+    "Paste Meeting Transcript",
+    height=250
+)
 
 # ---------------- FILE INPUT ----------------
 elif option == "File Upload":
@@ -106,53 +106,18 @@ if transcript:
 
             try:
 
-                # ---------------- MODEL CALL ----------------
                 result = generate_meeting_insights(transcript)
 
-                # ---------------- SUMMARY ----------------
-                st.subheader("🧠 Summary")
+                st.subheader("📤 JSON Output")
 
-                st.info(result["summary"])
+                st.json(result)
 
-                # ---------------- ACTION ITEMS ----------------
-                st.subheader("📌 Action Items")
-
-                for item in result["action_items"]:
-
-                    priority = item.get("priority", "medium")
-
-                    color = {
-                        "high": "🔴",
-                        "medium": "🟡",
-                        "low": "🟢"
-                    }.get(priority, "⚪")
-
-                    st.markdown(
-                        f"""
-{color} **Task:** {item.get('task')}
-
-👤 **Owner:** {item.get('owner')}
-
-📅 **Deadline:** {item.get('deadline')}
-
-⚡ **Priority:** {priority}
-"""
-                    )
-
-                # ---------------- DECISIONS ----------------
-                st.subheader("🎯 Decisions")
-
-                for decision in result["decisions"]:
-                    st.write(f"• {decision}")
-
-                # ---------------- TOPICS ----------------
-                st.subheader("📂 Topics")
-
-                for topic in result["topics"]:
-                    st.write(f"• {topic}")
+                # ✅ Clear input box
+                st.session_state.transcript_input = ""
 
             except Exception as e:
 
                 st.error("Failed to process transcript")
-
                 st.exception(e)
+
+                
