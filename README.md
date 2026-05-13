@@ -64,3 +64,33 @@ JsonOutputParser
 Structured Meeting Insights
    ↓
 Langfuse Monitoring Dashboard
+
+# 🔍 Langfuse Integration
+
+This project integrates **Langfuse** for LLM observability and monitoring.
+
+Langfuse helps track and debug the complete AI pipeline including:
+
+- Prompt tracing
+- LLM response monitoring
+- Execution latency tracking
+- Structured output inspection
+- LangChain pipeline observability
+- AI debugging and evaluation
+
+---
+
+## 🚀 Why Langfuse?
+
+In production-grade GenAI applications, monitoring prompts and model outputs is essential.
+
+Langfuse provides visibility into:
+
+```text
+User Input
+   ↓
+Prompt
+   ↓
+LLM Response
+   ↓
+Parsed JSON Output
