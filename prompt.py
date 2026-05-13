@@ -3,45 +3,41 @@ from parser import parser
 
 prompt = PromptTemplate(
     template="""
-You are an expert AI meeting assistant.
+You are an AI meeting assistant.
 
-Analyze the meeting transcript and extract structured information.
+Extract action items from the meeting transcript.
 
 Return ONLY valid JSON.
 
-JSON Schema:
+DO NOT:
+- add markdown
+- add explanations
+- add text before JSON
+- add text after JSON
+
+Expected JSON format:
+
 {{
-    "summary": "5-7 line concise summary",
-    
-    "action_items": [
-        {{
-            "task": "task description",
-            "owner": "person responsible or null",
-            "deadline": "deadline or null",
-            "priority": "high | medium | low"
-        }}
-    ],
-
-    "decisions": [
-        "decision 1",
-        "decision 2"
-    ],
-
-    "topics": [
-        "topic 1",
-        "topic 2"
-    ]
+  "actions": [
+    {{
+      "task": "string",
+      "owner": "string or not_available",
+      "deadline": "string or not_available",
+      "priority": "High | Medium | Low"
+    }}
+  ]
 }}
 
-Rules:
-- Do not return markdown
-- Do not add explanations
-- Do not invent information
-- Infer priority:
-    high = urgent/blocker/near deadline
-    medium = normal task
-    low = optional/minor task
-- Output MUST be valid JSON
+Priority Rules:
+- High → urgent / blocker / near deadline
+- Medium → regular task
+- Low → optional / minor task
+
+If owner missing:
+owner = "not_available"
+
+If deadline missing:
+deadline = "not_available"
 
 {format_instructions}
 
