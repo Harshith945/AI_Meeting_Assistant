@@ -1,0 +1,10 @@
+streamlit
+langchain
+langchain-community
+langchain-groq
+python-docx
+speechrecognition
+pydub
+python-dotenv
+langfuse
+langchain-core
