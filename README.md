@@ -63,7 +63,9 @@ JsonOutputParser
    ↓
 Structured Meeting Insights
    ↓
-Langfuse Monitoring Dashboard
+Langfuse Monitoring Dashboard```
+
+---
 
 # 🔍 Langfuse Integration
 
