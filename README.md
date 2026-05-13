@@ -48,7 +48,7 @@ The application uses Large Language Models (LLMs) with prompt engineering and st
 
 # 🏗️ System Architecture
 
-text
+```text
 User Input
    ↓
 Streamlit Interface
@@ -65,6 +65,7 @@ Structured Meeting Insights
    ↓
 Langfuse Monitoring Dashboard
 
+```
 ---
 
 # 🔍 Langfuse Integration
