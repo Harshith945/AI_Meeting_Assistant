@@ -1,3 +1,5 @@
+https://aimeetingassistant-jeaardvus64blz8mfsfkpc.streamlit.ap
+
 # 📋 AI Meeting Assistant
 
 An AI-powered multimodal meeting intelligence system built using **LangChain**, **Groq LLMs**, **Langfuse**, and **Streamlit** that automatically converts meeting conversations into structured insights including summaries, action items, decisions, and discussion topics.
